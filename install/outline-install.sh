@@ -91,7 +91,8 @@ fi
 read -r -p "Enter the public url for your Outline instance (e.g., https://outline.your-domain.tld)): " URL
 msg_info "Installing Outline (Patience)"
 cd /opt
-RELEASE_TAG=$(curl -s https://api.github.com/repos/outline/outline/releases/latest | grep "tag_name" | awk '{print substr($2, 2, length($2)-3) }')
+#RELEASE_TAG=$(curl -s https://api.github.com/repos/outline/outline/releases/latest | grep "tag_name" | awk '{print substr($2, 2, length($2)-3) }')
+RELEASE_TAG="v0.81.0"
 RELEASE=${RELEASE_TAG#v}
 wget -q "https://github.com/outline/outline/archive/refs/tags/${RELEASE_TAG}.zip"
 unzip -q ${RELEASE_TAG}.zip
