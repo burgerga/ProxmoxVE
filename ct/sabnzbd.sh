@@ -32,11 +32,11 @@ function update_script() {
         msg_error "No ${APP} Installation Found!"
         exit
     fi
-    if check_for_gh_release "sabnzbd" "sabnzbd/sabnzbd"; then
+    if check_for_gh_release "SABnzbd" "sabnzbd/sabnzbd"; then
         PYTHON_VERSION="3.13" setup_uv
         systemctl stop sabnzbd
         cp -r /opt/sabnzbd /opt/sabnzbd_backup_$(date +%s)
-        fetch_and_deploy_gh_release "sabnzbd" "sabnzbd/sabnzbd" "prebuild" "latest" "/opt/sabnzbd" "SABnzbd-*-src.tar.gz"
+        fetch_and_deploy_gh_release "SABnzbd" "sabnzbd/sabnzbd" "prebuild" "latest" "/opt/sabnzbd" "SABnzbd-*-src.tar.gz"
 
 
         if [[ ! -d /opt/sabnzbd/venv ]]; then
